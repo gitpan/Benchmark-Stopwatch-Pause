@@ -1,6 +1,6 @@
 Benchmark::Stopwatch::Pause - simple timing of stages of your code with a pause option.
 
-Version 0.02
+Version 0.03
 
 DESCRIPTION
 

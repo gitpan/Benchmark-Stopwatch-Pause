@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Benchmark::Stopwatch::Pause;
 use base q{Benchmark::Stopwatch};
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Time::HiRes;
 use Clone 'clone';
