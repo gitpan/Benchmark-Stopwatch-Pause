@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Benchmark::Stopwatch::Pause;
 use base q{Benchmark::Stopwatch};
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Time::HiRes;
 use Clone 'clone';
@@ -13,7 +13,7 @@ Benchmark::Stopwatch::Pause - simple timing of stages of your code with a pause 
 
 =head1 VERSION
 
-Version 0.02
+Version 0.04
 
 =head1 SYNOPSIS
 
@@ -351,6 +351,22 @@ sub as_data {
     
     return $data;    
 }    
+
+
+=head2 as_unpaused_data
+
+  my $data_structure_hashref = $stopwatch->as_unpaused_data;
+
+Returns the same data structure as as_data but with out the pause laps. 
+
+=cut
+
+sub as_unpaused_data {
+   my ($self) = @_;
+   my $data = $self->as_data;
+   $data->{laps} = [ grep{ ! $_->{pause} } @{ $data->{laps} } ];
+   return $data;
+}
 
 
 =head1 AUTHOR
